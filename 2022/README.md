@@ -4,6 +4,6 @@ Just like previously, the plan is to solve each day with a different programming
 
 Hoping to at least get further than last year, but eitherway, I'll keep track of my progress in the table below.
 
-| Day | Language   | Solution |
-| --- | ---------- | -------- |
-| 1   | TypeScript | [Link]() |
+| Day | Language   | Solution                                                                     |
+| --- | ---------- | ---------------------------------------------------------------------------- |
+| 1   | TypeScript | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022/day-01) |

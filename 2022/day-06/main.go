@@ -6,11 +6,7 @@ import (
 )
 
 func main() {
-	input, err := ioutil.ReadFile("./input/input.txt")
-	if err != nil {
-		fmt.Println("Error reading file")
-		return
-	}
+	input, _ := ioutil.ReadFile("./input/input.txt")
 
 	fmt.Println(getMarkerLocation(string(input), 4))
 	fmt.Println(getMarkerLocation(string(input), 14))
@@ -29,10 +25,9 @@ func getSet(input string) map[rune]bool {
 // Get the marker location
 func getMarkerLocation(input string, length int) int {
 	for i := 0; i < len(input); i++ {
-		sub := input[i : i+length]
-		set := getSet(sub)
+		set := getSet(input[i : i+length])
 
-		if len(set) == len(sub) {
+		if len(set) == length {
 			return i + length
 		}
 	}

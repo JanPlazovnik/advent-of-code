@@ -6,16 +6,13 @@ import { DirectoryMap, Directory } from './day7';
 const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8');
 const commands = input.split('\r\n');
 
-const dirMap: DirectoryMap = {};
-
-// Loop through the commands
-let activeDir: Directory = {
-    name: '/',
-    parent: '',
-    size: 0,
-    path: '/',
+const root: Directory = { parent: '', size: 0, path: '/' };
+let activeDir = root;
+const dirMap: DirectoryMap = {
+    '/': root,
 };
 
+// Loop through the commands
 for (const command of commands) {
     const parts = command.split(' ');
     const isCommand = parts[0] === '$';
@@ -28,11 +25,18 @@ for (const command of commands) {
 
     if (isCommand && parts[1] === 'cd') {
         if (parts[2] === '..') {
-            activeDir = dirMap[activeDir!.parent];
+            activeDir = dirMap[activeDir.parent];
             continue;
         }
 
-        const path: string = activeDir!.path + '/' + parts[2];
+        let path = '';
+        if (parts[2] === '/') {
+            path = '/';
+        } else if (activeDir.path === '/') {
+            path = activeDir.path + parts[2];
+        } else {
+            path = activeDir.path + '/' + parts[2];
+        }
 
         // If the directory already exists, set it as the active directory
         if (dirMap[path]) {
@@ -42,8 +46,7 @@ for (const command of commands) {
 
         // If the directory doesn't exist, create it and set it as the active directory
         const newDir: Directory = {
-            name: parts[2],
-            parent: activeDir!.path,
+            parent: activeDir.path,
             size: 0,
             path,
         };
@@ -54,9 +57,8 @@ for (const command of commands) {
 
     if (isFile) {
         const size = parseInt(parts[0]);
-        dirMap[activeDir!.path].size += size;
-
-        let parent = dirMap[activeDir!.parent];
+        dirMap[activeDir.path].size += size;
+        let parent = dirMap[activeDir.parent];
         while (parent) {
             parent.size += size;
             parent = dirMap[parent.parent];

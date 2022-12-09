@@ -2,26 +2,19 @@ import * as fs from "fs";
 import * as path from "path";
 import Point from "./Point";
 
-// P1: 6284
-
 // Read the input file
-const input = fs.readFileSync(path.join(__dirname, "/input/input.txt"), "utf8");
-
-// Parse it into {dir: string, num: number}[]
-const lines = input.split("\n").map((line) => {
-    const [dir, num] = line.split(" ");
-    return { dir, num: parseInt(num) };
-});
+const lines = fs
+    .readFileSync(path.join(__dirname, "/input/input.txt"), "utf8")
+    .split("\n")
+    .map((line) => {
+        const [dir, num] = line.split(" ");
+        return { dir, num: parseInt(num) };
+    });
 
 function getTailVisits(length: number) {
     // All knots on the rope start at (0, 0)
-    const rope: Point[] = new Array(length);
+    const rope: Point[] = new Array(length).fill(0).map(() => new Point(0, 0));
     const visited: Point[] = [new Point(0, 0)];
-
-    // Fill the rope with Point objects
-    for (let i = 0; i < rope.length; i++) {
-        rope[i] = new Point(0, 0);
-    }
 
     // For each directional input, move the head and the tails
     for (const { dir, num } of lines) {
@@ -32,18 +25,15 @@ function getTailVisits(length: number) {
 
             // Move each tail except the last one towards the next tail
             for (let j = rope.length - 2; j >= 0; j--) {
-                if (!rope[j].isAdjacentOrOverlapping(rope[j + 1])) {
-                    rope[j].moveTowards(rope[j + 1]);
+                if (rope[j].isAdjacentOrOverlapping(rope[j + 1])) {
+                    continue;
+                }
 
-                    // Only track the positions the first tail visits
-                    if (j !== 0) {
-                        continue;
-                    }
+                rope[j].moveTowards(rope[j + 1]);
 
-                    // Add the position to the list of visited positions, if it hasn't been visited yet
-                    if (visited.every((p) => !p.equals(rope[j]))) {
-                        visited.push(new Point(rope[j].x, rope[j].y));
-                    }
+                // Add the position to the list of visited positions, if it hasn't been visited yet
+                if (j === 0 && visited.every((p) => !p.equals(rope[j]))) {
+                    visited.push(new Point(rope[j].x, rope[j].y));
                 }
             }
         }

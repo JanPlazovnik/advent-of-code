@@ -1,0 +1,34 @@
+{
+    "name": "aoc2022",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "1": "tsnd src/day-01/index",
+        "2": "tsnd src/day-02/index",
+        "3": "tsnd src/day-03/index",
+        "4": "ruby src/day-04/main.rb",
+        "5": "tsnd src/day-05/index",
+        "6": "go run src/day-06/main.go",
+        "7": "tsnd src/day-07/index",
+        "8": "tsnd src/day-08/index",
+        "9": "ts-node src/day-09/index",
+        "generate-day": "tsnd -r dotenv/config src/generate-day.ts"
+    },
+    "keywords": [],
+    "author": "Jan Plazovnik",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.11.10",
+        "@typescript-eslint/eslint-plugin": "^4.29.1",
+        "@typescript-eslint/parser": "^4.29.1",
+        "dotenv": "^10.0.0",
+        "eslint": "^7.32.0",
+        "ts-node-dev": "^1.1.8",
+        "typescript": "^4.3.5"
+    },
+    "dependencies": {
+        "axios": "^1.2.1",
+        "open": "^8.4.0"
+    }
+}

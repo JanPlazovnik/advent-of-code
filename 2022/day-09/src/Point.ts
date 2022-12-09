@@ -22,10 +22,10 @@ export default class Point {
     }
 
     move(where: string, amount: number): void {
-        if (where === "U") this.up(amount);
-        else if (where === "D") this.down(amount);
-        else if (where === "R") this.right(amount);
-        else if (where === "L") this.left(amount);
+        if (where === 'U') this.up(amount);
+        else if (where === 'D') this.down(amount);
+        else if (where === 'R') this.right(amount);
+        else if (where === 'L') this.left(amount);
         else throw new Error(`Unknown direction: ${where}`);
     }
 

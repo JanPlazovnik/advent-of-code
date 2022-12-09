@@ -1,12 +1,12 @@
-import * as fs from "fs";
-import * as path from "path";
-import Point from "./Point";
+import * as fs from 'fs';
+import * as path from 'path';
+import Point from './Point';
 
 const lines = fs
-    .readFileSync(path.join(__dirname, "/input/input.txt"), "utf8")
-    .split("\n")
+    .readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8')
+    .split('\n')
     .map((line) => {
-        const [dir, num] = line.split(" ");
+        const [dir, num] = line.split(' ');
         return { dir, num: parseInt(num) };
     });
 

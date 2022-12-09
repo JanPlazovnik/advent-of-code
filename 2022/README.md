@@ -14,3 +14,4 @@ Hoping to at least get further than last year, but eitherway, I'll keep track of
 | 6   | Go         | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022/day-06) |
 | 7   | TypeScript | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022/day-07) |
 | 8   | TypeScript | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022/day-08) |
+| 9   | TypeScript | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022/day-09) |

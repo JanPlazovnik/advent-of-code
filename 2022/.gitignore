@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/node,dotenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,dotenv
 
@@ -115,3 +114,6 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node,dotenv
 start.bat
+
+# Ignore all input files in /input
+src/*/input/*.txt

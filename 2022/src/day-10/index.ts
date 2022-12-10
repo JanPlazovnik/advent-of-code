@@ -2,10 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as chalk from 'chalk';
 
-const input = fs.readFileSync(
-    path.join(__dirname, '/input/cookie.txt'),
-    'utf8'
-);
+// prettier-ignore
+const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8');
 
 let registerValue = 1;
 let currentCycles = 0;

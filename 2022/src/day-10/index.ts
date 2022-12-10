@@ -27,7 +27,7 @@ function runCycles(amount: number): boolean {
 
         currentCycles++;
 
-        // Calculate the singal strength
+        // Calculate the signal strength
         if ([20, 60, 100, 140, 180, 220].includes(currentCycles)) {
             signalStrengths.push(currentCycles * registerValue);
         }

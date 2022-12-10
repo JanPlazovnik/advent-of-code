@@ -13,6 +13,7 @@
         "7": "tsnd src/day-07/index",
         "8": "tsnd src/day-08/index",
         "9": "ts-node src/day-09/index",
+        "10": "ts-node src/day-10/index",
         "generate-day": "tsnd -r dotenv/config src/generate-day.ts"
     },
     "keywords": [],
@@ -29,6 +30,7 @@
     },
     "dependencies": {
         "axios": "^1.2.1",
+        "chalk": "^4.1.2",
         "open": "^8.4.0"
     }
 }

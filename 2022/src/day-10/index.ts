@@ -2,7 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as chalk from 'chalk';
 
-const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8');
+const input = fs.readFileSync(
+    path.join(__dirname, '/input/cookie.txt'),
+    'utf8'
+);
 
 let registerValue = 1;
 let currentCycles = 0;
@@ -22,7 +25,7 @@ function runCycles(amount: number): boolean {
     for (let i = 0; i < amount; i++) {
         // prettier-ignore
         if ([registerValue - 1, registerValue, registerValue + 1].includes(currentCycles % 40)) {
-            display[Math.floor((currentCycles + 1) / 40)][((currentCycles) % 40)] = chalk.bold`{red #}`;
+            display[Math.floor((currentCycles + 1) / 40)][(currentCycles % 40)] = chalk.bold`{red #}`;
         }
 
         currentCycles++;

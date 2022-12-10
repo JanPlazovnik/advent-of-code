@@ -20,3 +20,18 @@ export function random<T>(input: T[]): T {
 export function clamp(num: number, min: number, max: number): number {
     return Math.min(Math.max(num, min), max);
 }
+
+export class Timer {
+    private readonly time: [number, number];
+
+    constructor(message: string) {
+        console.log(message);
+        this.time = process.hrtime();
+    }
+
+    public end(): void {
+        const duration = process.hrtime(this.time);
+        const parsedDuration = (duration[0] + duration[1] / 1e9).toFixed(3);
+        console.log(`Done. Took ${parsedDuration} seconds.`);
+    }
+}

@@ -2,39 +2,19 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as chalk from 'chalk';
 
-// prettier-ignore
-const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8');
+const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8').split('\n').map(it => it.split(' '));
+const line = { str: '', print() { console.log(this.str); this.str = ''; } }
+let registerValue = 1, cycles = 0, signalStrength = 0;
 
-let registerValue = 1;
-let currentCycles = 0;
-const signalStrengths: number[] = [];
-
-// prettier-ignore
-const display: string[][] = new Array(6).fill(0).map(() => new Array(40).fill(' '));
-
-for (const instruction of input.split('\n')) {
-    const [instr, value] = instruction.split(' ');
-
-    instr === 'noop' && runCycles(1);
-    instr === 'addx' && runCycles(2) && (registerValue += parseInt(value));
+for (const [instr, value] of input) {
+    instr === 'noop' && runCycle();
+    instr === 'addx' && runCycle() && runCycle() && (registerValue += parseInt(value));
 }
 
-function runCycles(amount: number): boolean {
-    for (let i = 0; i < amount; i++) {
-        // prettier-ignore
-        if ([registerValue - 1, registerValue, registerValue + 1].includes(currentCycles % 40)) {
-            display[Math.floor((currentCycles + 1) / 40)][(currentCycles % 40)] = chalk.bold`{red #}`;
-        }
-
-        currentCycles++;
-
-        // Calculate the signal strength
-        if ([20, 60, 100, 140, 180, 220].includes(currentCycles)) {
-            signalStrengths.push(currentCycles * registerValue);
-        }
-    }
-    return true;
+function runCycle() {
+    line.str += ((cycles % 40) >= registerValue - 1 && (cycles % 40) <= registerValue + 1) ? chalk.bold`{red #}` : ' ';
+    (++cycles % 40 === 0) && line.print();
+    return [20, 60, 100, 140, 180, 220].includes(cycles) && (signalStrength += cycles * registerValue), true;
 }
 
-console.log(signalStrengths.reduce((acc, curr) => acc + curr, 0));
-console.log(display.map((row) => row.join('')).join('\n'));
+console.log(signalStrength);

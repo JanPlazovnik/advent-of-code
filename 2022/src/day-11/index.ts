@@ -17,11 +17,10 @@ function parseInput(input: string): Monkey[] {
         } as Monkey;
         while (lines.length && lines[0] !== '') {
             const line = lines.shift();
-            if (!line) continue;
-            if (line.startsWith('Monkey')) continue;
+            if (!line || line.startsWith('Monkey')) continue;
 
             const dataStart = line.indexOf(':');
-            if (!dataStart) throw new Error('wtf?');
+            if (dataStart === -1) throw new Error('wtf?');
             const dataString = line.substring(dataStart + 2, line.length);
 
             // Get starting items

@@ -67,6 +67,9 @@ function parseInput(input: string): Monkey[] {
 
 function solve(rounds: number, worryManageMode: WorryManageMode): number {
     const monkeys = parseInput(input);
+    // This is only needed for WorryManageMode.MOD, so it's still wasteful to calculate it for WorryManageMode.DIVIDE but it's not a big deal
+    const mod = monkeys.reduce((value: number, monkey: Monkey) => monkey.test.divisibleBy * value, 1);
+
     for (let round = 0; round < rounds; round++) {
         for (const monkey of monkeys) {
             for (const item of [...monkey.items]) {
@@ -83,7 +86,7 @@ function solve(rounds: number, worryManageMode: WorryManageMode): number {
                 // prettier-ignore
                 switch (worryManageMode) {
                     case WorryManageMode.DIVIDE: monkey.items[index] = Math.floor(monkey.items[index] / 3); break;
-                    case WorryManageMode.MOD: monkey.items[index] %= monkeys.reduce((value: number, monkey: Monkey) => monkey.test.divisibleBy * value, 1); break;
+                    case WorryManageMode.MOD: monkey.items[index] %= mod; break;
                 }
 
                 const test = monkey.items[index] % monkey.test.divisibleBy === 0;
@@ -96,5 +99,5 @@ function solve(rounds: number, worryManageMode: WorryManageMode): number {
     return sorted[0].inspections * sorted[1].inspections;
 }
 
-console.log(solve(20, WorryManageMode.DIVIDE));
-console.log(solve(10000, WorryManageMode.MOD));
+console.log(solve(20, WorryManageMode.DIVIDE)); // 55216
+console.log(solve(10000, WorryManageMode.MOD)); // 12848882750

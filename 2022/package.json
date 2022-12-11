@@ -14,6 +14,7 @@
         "8": "tsnd src/day-08/index",
         "9": "ts-node src/day-09/index",
         "10": "ts-node src/day-10/index",
+        "11": "ts-node src/day-11/index",
         "generate-day": "tsnd -r dotenv/config src/generate-day.ts"
     },
     "keywords": [],

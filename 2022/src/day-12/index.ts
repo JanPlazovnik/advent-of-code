@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as fs from 'fs';
 import * as path from 'path';
-import { CoordinatePair, InputType, StartPoint } from './types';
+import { InputType } from '../common/utils';
+import { CoordinatePair, StartPoint } from './types';
 
 const input = fs.readFileSync(path.join(__dirname, '/input/input.txt'), 'utf8').trim();
 

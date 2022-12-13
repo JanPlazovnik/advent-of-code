@@ -34,7 +34,6 @@ function checkOrder(left: InputArray, right: InputArray): number {
     // both are lists
     if (Array.isArray(left) && Array.isArray(right)) {
         const length = Math.max(left.length, right.length);
-        // const sameLength = left.length === right.length;
 
         for (let i = 0; i < length; i++) {
             const leftValue = left[i] as InputArray;

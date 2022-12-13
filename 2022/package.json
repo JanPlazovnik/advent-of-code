@@ -16,6 +16,7 @@
         "10": "ts-node-dev src/day-10/index",
         "11": "ts-node-dev src/day-11/index",
         "12": "ts-node-dev src/day-12/index",
+        "13": "ts-node src/day-13/index",
         "generate-day": "ts-node-dev -r dotenv/config src/generate-day.ts"
     },
     "keywords": [],

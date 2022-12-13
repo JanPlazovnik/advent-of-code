@@ -35,3 +35,12 @@ export class Timer {
         console.log(`Done. Took ${parsedDuration} seconds.`);
     }
 }
+
+export enum InputType {
+    Part1,
+    Part2,
+}
+
+export function deepEqual(x: any, y: any): boolean {
+    return JSON.stringify(x) === JSON.stringify(y);
+}

@@ -23,16 +23,15 @@ export function clamp(num: number, min: number, max: number): number {
 
 export class Timer {
     private readonly time: [number, number];
-
-    constructor(message: string) {
-        console.log(message);
+    constructor(private readonly name: string) {
+        console.log(`[${this.name}] Starting...`);
         this.time = process.hrtime();
     }
 
     public end(): void {
         const duration = process.hrtime(this.time);
         const parsedDuration = (duration[0] + duration[1] / 1e9).toFixed(3);
-        console.log(`Done. Took ${parsedDuration} seconds.`);
+        console.log(`[${this.name}] Done. Took ${parsedDuration} seconds.`);
     }
 }
 

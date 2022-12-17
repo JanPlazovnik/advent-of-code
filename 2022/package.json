@@ -18,8 +18,9 @@
         "12": "ts-node-dev src/day-12/index",
         "13": "ts-node src/day-13/index",
         "14": "ts-node src/day-14/index",
-        "14:go": "go run src/day-14/main.go",
         "15": "go run src/day-15/main.go",
+        "16": "go run src/day-16/main.go",
+        "14:go": "go run src/day-14/main.go",
         "generate-day": "ts-node-dev -r dotenv/config src/generate-day.ts"
     },
     "keywords": [],

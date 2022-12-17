@@ -39,11 +39,6 @@ func main() {
 	fmt.Println(Solve(string(input), 2))
 }
 
-func KeyExists(houses map[int]bool, key int) bool {
-	_, exists := houses[key]
-	return exists
-}
-
 func Solve(input string, part int) int {
 	instructions := strings.Split(string(input), "")
 	houses := map[int]bool{}
@@ -77,7 +72,7 @@ func Solve(input string, part int) int {
 			who.Left()
 		}
 
-		if !KeyExists(houses, who.Key()) {
+		if !houses[who.Key()] {
 			houses[who.Key()] = true
 			unique++
 		}

@@ -29,9 +29,9 @@ class DayOne < BaseSolution
         line.gsub!(digit, "#{first}#{i + 1}#{last}")
       end
 
-      numbers = line.scan(/\d/)
+      parts = line.scan(/\d/)
 
-      (numbers[0] + numbers[-1]).to_i
+      (parts[0] + parts[-1]).to_i
     end
 
     puts "Sum: #{sum}"

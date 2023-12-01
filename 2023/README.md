@@ -6,7 +6,7 @@ You can use the table below to jump to the solution for a specific day.
 
 | Day | Language | Solution |
 | --- | -------- | -------- |
-| 1   | Ruby     | [Link]() |
+| 1   | Ruby     | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023/solutions/day-01) |
 | 2   | Ruby     | [Link]() |
 | 3   | Ruby     | [Link]() |
 | 4   | Ruby     | [Link]() |

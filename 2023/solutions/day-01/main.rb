@@ -10,10 +10,7 @@ class DayOne < BaseSolution
   def part_one
     puts "Day 01 - Part One Solution"
 
-    sum = @input_data.sum do |line|
-      parts = line.scan(/(\d)/).flatten()
-      (parts[0] + parts[-1]).to_i
-    end
+    sum = @input_data.map(&method(:sum_first_and_last_digit)).sum
 
     puts "Sum: #{sum}"
   end
@@ -29,11 +26,14 @@ class DayOne < BaseSolution
         line.gsub!(digit, "#{first}#{i + 1}#{last}")
       end
 
-      parts = line.scan(/\d/)
-
-      (parts[0] + parts[-1]).to_i
+      sum_first_and_last_digit line
     end
 
     puts "Sum: #{sum}"
+  end
+
+  def sum_first_and_last_digit(line)
+    parts = line.scan(/\d/)
+    (parts[0] + parts[-1]).to_i
   end
 end

@@ -8,16 +8,32 @@ class DayOne < BaseSolution
   end
 
   def part_one
-    # Day One - Part One logic here
-    # Access input using @input_data
     puts "Day 01 - Part One Solution"
-    puts @input_data
+
+    sum = @input_data.sum do |line|
+      parts = line.scan(/(\d)/).flatten()
+      (parts[0] + parts[-1]).to_i
+    end
+
+    puts "Sum: #{sum}"
   end
 
   def part_two
-    # Day One - Part Two logic here
-    # Access input using @input_data
     puts "Day 01 - Part Two Solution"
-    puts @input_data.reverse
+
+    digits = %w(one two three four five six seven eight nine)
+
+    sum = @input_data.sum do |line|
+      digits.each_with_index do |digit, i|
+        first, *middle, last = digit.chars
+        line.gsub!(digit, "#{first}#{i + 1}#{last}")
+      end
+
+      numbers = line.scan(/\d/)
+
+      (numbers[0] + numbers[-1]).to_i
+    end
+
+    puts "Sum: #{sum}"
   end
 end

@@ -16,6 +16,11 @@ begin
     day_one = DayOne.new(get_input_path(day, test_mode))
     day_one.part_one
     day_one.part_two
+  when 2
+    require_relative 'solutions/day-02/main'
+    day_two = DayTwo.new(get_input_path(day, test_mode))
+    day_two.part_one
+    day_two.part_two
   else
     puts "Day #{day} solution not found"
   end

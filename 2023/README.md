@@ -9,7 +9,7 @@ You can use the table below to jump to the solution for a specific day.
 | 1   | Ruby     | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023/solutions/day-01) |
 | 2   | Ruby     | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023/solutions/day-02) |
 | 3   | Ruby     | [Link]()                                                                               |
-| 4   | Ruby     | [Link]()                                                                               |
+| 4   | Ruby     | [Link](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023/solutions/day-04) |
 | 5   | Ruby     | [Link]()                                                                               |
 | 6   | Ruby     | [Link]()                                                                               |
 | 7   | Ruby     | [Link]()                                                                               |

@@ -4,7 +4,7 @@ class ScratchCard
   def initialize(winning_numbers, used_numbers)
     @winning_numbers = winning_numbers
     @used_numbers = used_numbers
-end
+  end
 
   def winning_numbers
       @winning_numbers
@@ -13,8 +13,13 @@ end
   def used_numbers
       @used_numbers
   end
-end
 
+  def get_matches
+    @winning_numbers.count do |number|
+      @used_numbers.include?(number)
+    end
+  end
+end
 
 class DayFour < BaseSolution
   def initialize(input_file)
@@ -27,13 +32,7 @@ class DayFour < BaseSolution
   def part_one
     puts "Day 04 - Part One Solution"
 
-    points = @cards.map do |card|
-      card.winning_numbers.count do |number|
-        card.used_numbers.include?(number)
-      end
-    end
-
-    sum = points.sum do |count|
+    sum = @cards.map(&:get_matches).sum do |count|
       count.zero? ? 0 : 2 ** (count - 1)
     end
 
@@ -42,6 +41,7 @@ class DayFour < BaseSolution
 
   def part_two
     puts "Day 04 - Part Two Solution"
+    puts "I don't want to bother with this one."
   end
 end
 

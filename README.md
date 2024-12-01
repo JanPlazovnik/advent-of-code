@@ -10,6 +10,7 @@ This repo contains my solutions for the puzzles. I'm not trying to go for high s
 
 ## Quick links
 
-- [2021](https://github.com/JanPlazovnik/advent-of-code/tree/main/2021)
-- [2022](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022)
-- [2023](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023)
+-   [2021](https://github.com/JanPlazovnik/advent-of-code/tree/main/2021)
+-   [2022](https://github.com/JanPlazovnik/advent-of-code/tree/main/2022)
+-   [2023](https://github.com/JanPlazovnik/advent-of-code/tree/main/2023)
+-   [2024](https://github.com/JanPlazovnik/advent-of-code/tree/main/2024)
